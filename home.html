@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="home.css">
+    <title>PHA5E</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">PHA5E</div>
+            <div class="hamburger" onclick="toggleMenu()">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">Our vision</a></li>
+                <li><a href="#">Our team</a></li>
+                <li><a href="#">Our projects</a></li>
+                <li><a href="#">Contact us</a></li>
+                <li><a href="#">FR/EN</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="text-container">
+            <h1 class="main-text">IMAGINING UNIQUE CONCEPTS AND DIGITAL EXPERIENCES</h1>
+        </div>
+        <div class="images-container">
+            <div class="image-row1">
+                <div class="image-item" id="image1">
+                    <img src="images/biggerscience.jpeg" alt="Image 1">
+                </div>
+                <div class="image-item" id="image2">
+                    <img src="images/mucem.png" alt="Image 2">
+                </div>
+            </div>
+            <div class="image-row2">
+                <div class="image-item" id="image3">
+                    <img src="images/unganisha.jpeg" alt="Image 3">
+                </div>
+                <div class="image-item" id="image4">
+                    <img src="images/olive.jpeg" alt="Image 4">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- <script>
+        document.querySelectorAll('.image-item').forEach(item => {
+    item.addEventListener('mouseenter', () => {
+        item.style.zIndex = '10';
+        document.querySelector('.main-text').style.color = 'transparent';
+        document.querySelector('.main-text').style.webkitTextStroke = '1px #fff';
+        document.querySelector('.main-text').style.zIndex = '1';
+        document.querySelectorAll('.image-item').forEach(img => {
+            if (img !== item) {
+                img.style.opacity = '0.2';
+            }
+        });
+    });
+
+    item.addEventListener('mouseleave', () => {
+        item.style.zIndex = '1';
+        document.querySelector('.main-text').style.color = '#fff';
+        document.querySelector('.main-text').style.webkitTextStroke = 'none';
+        document.querySelector('.main-text').style.zIndex = '2';
+        document.querySelectorAll('.image-item').forEach(img => {
+            img.style.opacity = '1';
+        });
+
+        // Reset image position
+        item.querySelector('img').style.transform = 'translate(0, 0)';
+    });
+
+    item.addEventListener('mousemove', (e) => {
+        const rect = item.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+        
+        item.querySelector('img').style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
+    });
+});
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.nav-links li');
+            navLinks.forEach((link, index) => {
+                setTimeout(() => {
+                    link.style.opacity = '1';
+                    link.style.transform = 'translateY(0)';
+                }, index * 200); // Delay each item by 200ms
+            });
+        });
+
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('active');
+
+            const navItems = document.querySelectorAll('.nav-links li');
+            if (navLinks.classList.contains('active')) {
+                navItems.forEach((item, index) => {
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'translateY(0)';
+                    }, index * 100); 
+                });
+            } else {
+                navItems.forEach((item) => {
+                    item.style.opacity = '0';
+                    item.style.transform = 'translateY(-20px)';
+                });
+            }
+        }
+
+        document.querySelectorAll('.image-item').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                item.style.zIndex = '10';
+                document.querySelector('.main-text').style.color = 'transparent';
+                document.querySelector('.main-text').style.webkitTextStroke = '1px #fff';
+                document.querySelector('.main-text').style.zIndex = '1';
+                document.querySelectorAll('.image-item').forEach(img => {
+                    if (img !== item) {
+                        img.style.opacity = '0.2';
+                    }
+                });
+            });
+
+            item.addEventListener('mouseleave', () => {
+                item.style.zIndex = '1';
+                document.querySelector('.main-text').style.color = '#fff';
+                document.querySelector('.main-text').style.webkitTextStroke = 'none';
+                document.querySelector('.main-text').style.zIndex = '2';
+                document.querySelectorAll('.image-item').forEach(img => {
+                    img.style.opacity = '1';
+                });
+            });
+        });
+    </script> -->
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    const navLinks = document.querySelectorAll('.nav-links li');
+    navLinks.forEach((link, index) => {
+        setTimeout(() => {
+            link.style.opacity = '1';
+            link.style.transform = 'translateY(0)';
+        }, index * 200); // Delay each item by 200ms
+    });
+});
+
+// Toggle mobile menu
+function toggleMenu() {
+    const navLinks = document.querySelector('.nav-links');
+    navLinks.classList.toggle('active');
+
+    const navItems = document.querySelectorAll('.nav-links li');
+    navItems.forEach((item, index) => {
+        setTimeout(() => {
+            item.style.opacity = navLinks.classList.contains('active') ? '1' : '0';
+            item.style.transform = navLinks.classList.contains('active') ? 'translateY(0)' : 'translateY(-20px)';
+        }, index * 100);
+    });
+}
+
+// Image hover effects
+document.querySelectorAll('.image-item').forEach(item => {
+    item.addEventListener('mouseenter', () => {
+        item.style.zIndex = '10';
+        document.querySelector('.main-text').style.color = 'transparent';
+        document.querySelector('.main-text').style.webkitTextStroke = '1px #fff';
+
+        document.querySelectorAll('.image-item').forEach(img => {
+            if (img !== item) img.style.opacity = '0.2';
+        });
+    });
+
+    item.addEventListener('mouseleave', () => {
+        item.style.zIndex = '1';
+        document.querySelector('.main-text').style.color = '#fff';
+        document.querySelector('.main-text').style.webkitTextStroke = 'none';
+
+        document.querySelectorAll('.image-item').forEach(img => {
+            img.style.opacity = '1';
+        });
+    });
+
+    item.addEventListener('mousemove', (e) => {
+        const rect = item.getBoundingClientRect();
+        const x = e.clientX - rect.left - rect.width / 2;
+        const y = e.clientY - rect.top - rect.height / 2;
+
+        item.querySelector('img').style.transform = `translate(${x * 0.1}px, ${y * 0.1}px)`;
+    });
+});
+
+    </script>
+</body>
+</html>

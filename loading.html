@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PHA5E</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background: black;
+      color:white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Container for SVG Text */
+    .text-container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* SVG Text Styles */
+    .text-outline {
+      font-size: 5rem;
+      font-weight: bold;
+      fill: none;
+      stroke:white;
+      stroke-width: 2;
+      stroke-dasharray: 1000;
+      stroke-dashoffset: 1000;
+      animation: drawOutline 3s ease-in-out forwards;
+    }
+
+    .text-fill {
+      font-size: 5rem;
+      font-weight: bold;
+      fill:white;
+      mask: url(#text-mask);
+    }
+
+
+    .mask-rect {
+      fill: white;
+      transform: scaleY(0);
+      transform-origin: bottom;
+      animation: fillMask 5s ease-in-out 1s forwards; 
+    }
+
+    @keyframes drawOutline {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+
+    @keyframes fillMask {
+      from {
+        transform: scaleY(0);
+      }
+      to {
+        transform: scaleY(1);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="text-container">
+    <svg width="100%" height="100%">
+
+      <text class="text-outline" x="50%" y="50%" text-anchor="middle" dominant-baseline="middle">Pha5e</text>
+
+
+      <mask id="text-mask">
+        <rect class="mask-rect" x="0" y="0" width="100%" height="100%" />
+      </mask>
+
+      <text class="text-fill" x="50%" y="50%" text-anchor="middle" dominant-baseline="middle">Pha5e</text>
+    </svg>
+  </div>
+
+  <script>
+    document.querySelector('.mask-rect').addEventListener('animationend', () => {
+      window.location.href = 'home.html';
+    });
+  </script>
+</body>
+</html>
